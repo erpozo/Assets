@@ -9,8 +9,9 @@ public class personaje : MonoBehaviour
     {
         
     }
-
     // Update is called once per frame
+    /**
+    TU codigo es puta mierda*/
     void Update()
     {
         if (Input.GetKey("w")){
