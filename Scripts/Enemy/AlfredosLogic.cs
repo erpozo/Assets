@@ -19,7 +19,14 @@ public class AlfredosLogic : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        goTo(pointA);
+        if ( == pointA)
+        {
+            goTo(pointB);
+        }
+        else
+        {
+            goTo(pointA)
+        }
     }
 
     public void goTo(Transform point){
