@@ -33,14 +33,27 @@ public class CharacterController : MonoBehaviour
     {
         float right = 10f;
         float left = -10f;
-
+/*
         if (Input.GetKeyDown(KeyCode.A)){
-            transform.Translate(left* Time.deltaTime, 0, 0);
+            Move(left);
         }
 
         if (Input.GetKeyDown(KeyCode.D)){
-            transform.Translate(right * Time.deltaTime, 0, 0);
+            Move(right);
+        }*/
+        
+        if (Input.GetKey(KeyCode.A)){
+            Move(left);
         }
+
+        if (Input.GetKey(KeyCode.D)){
+            Move(right);
+        }
+    }
+
+    public void Move(float force)
+    {
+        transform.Translate(force * Time.deltaTime, 0, 0);
     }
 
     public void Jump(float force)
