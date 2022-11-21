@@ -7,6 +7,7 @@ public class AlfredosLogic : MonoBehaviour
     public Transform pointA;
     public Transform pointB;
     public float speed;
+    private bool hellegao;
     // Start is called before the first frame update
     private void Awake() {
 
@@ -19,13 +20,14 @@ public class AlfredosLogic : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if ( == pointA)
-        {
-            goTo(pointB);
+        if (transform.position == pointA.position || transform.position == pointB.position){
+            hellegao = !hellegao;
         }
-        else
-        {
-            goTo(pointA)
+        if (hellegao){
+            goTo(pointA);
+        }
+        if (!hellegao){
+            goTo(pointB);
         }
     }
 
