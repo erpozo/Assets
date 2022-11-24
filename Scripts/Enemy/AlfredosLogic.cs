@@ -20,7 +20,7 @@ public class AlfredosLogic : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (transform.position == pointA.position || transform.position == pointB.position){
+        if (transform.position.x == pointA.position.x || transform.position.x == pointB.position.x){
             hellegao = !hellegao;
         }
         if (hellegao){

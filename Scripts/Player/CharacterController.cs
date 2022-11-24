@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float jumpForce = 250f;
+    public float moveSpeed = 10f;
     public float rayLenght;
     private Rigidbody2D rb2D;
     public LayerMask floor;
@@ -19,28 +20,21 @@ public class CharacterController : MonoBehaviour
     }
     // Update is called once per frame
 
-    void Update()
-    {
+    void Update(){
+
         Debug.DrawRay(transform.position, Vector2.down * rayLenght, Color.red);
 
         if (IsGrounded()){
             Jump(jumpForce);
         }
-        Movement();
+        Movement(moveSpeed);
+        
     }
 
-    public void Movement()
-    {
-        float right = 10f;
-        float left = -10f;
-/*
-        if (Input.GetKeyDown(KeyCode.A)){
-            Move(left);
-        }
+    public void Movement(float speed){
 
-        if (Input.GetKeyDown(KeyCode.D)){
-            Move(right);
-        }*/
+        float right = speed;
+        float left = -speed;
         
         if (Input.GetKey(KeyCode.A)){
             Move(left);
@@ -51,20 +45,17 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    public void Move(float force)
-    {
+    public void Move(float force){
         transform.Translate(force * Time.deltaTime, 0, 0);
     }
 
-    public void Jump(float force)
-    {
+    public void Jump(float force){
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)){
             rb2D.AddForce(Vector2.up * force);
         }
     }
 
-    public bool IsGrounded()
-    {
+    public bool IsGrounded(){
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLenght, floor);
         if (hit.collider != null)
         {
