@@ -9,7 +9,7 @@ public class CharacterController : MonoBehaviour
     public float rayLenght;
     private Rigidbody2D rb2D;
     public LayerMask floor;
-
+    public LayerMask enemy;
     private void Awake(){
         rb2D = GetComponent<Rigidbody2D>();
     }
