@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Damageable : MonoBehaviour {
-    //Vida máxima del objeto
+    //Vida mï¿½xima del objeto
     public float maxHealth;
     //Vida actual
     public float currentHealth;
@@ -35,16 +35,11 @@ public class Damageable : MonoBehaviour {
     }
 
     public void GetDamage(float damage) {
-        Debug.Log("Recibiendo " + damage + " de daño");
+        Debug.Log("Recibiendo " + damage + " de daï¿½o");
         currentHealth -= damage;
-        if (!healthBar.gameObject.activeSelf) {
-            healthBar.gameObject.SetActive(true);
-        }
-
-        healthBar.fillAmount = currentHealth / maxHealth;
 
         if (currentHealth <= 0) {
-
+            Debug.Log("VidaInferiorA0");
             Death();
             Destroy(gameObject, 3);
 
